@@ -17,7 +17,7 @@ const getallProducers = await ProducerModel.find();
 return res.json({Producer: getallProducers});
 });
 
-Router.get("/get_one/:producer_id", async(res,req) =>{
+Router.get("/get_one/:producer_id", async(req,res) =>{
     const getoneProducer = await ProducerModel.findOne(
         {
             producer_id : req.params.producer_id,
@@ -38,7 +38,7 @@ const updateProducer = await ProducerModel.findOneAndUpdate(
 return res.json({Producer: updateProducer, message: "Name has been changed"});
 });
 
-Router.delete("/delete/:pruduce_id", async(req,res) =>{
+Router.delete("/delete/:producer_id", async(req,res) =>{
     const deleteProducer = await ProducerModel.findOneAndDelete(
         {
             producer_id: req.params.producer_id,
