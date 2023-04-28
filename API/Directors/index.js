@@ -17,7 +17,7 @@ Router.get("/get/director", async (req,res) => {
     return res.json({Directors: getalldirectors} );
  });
 
- Router.get("/get_one/:director_id", async(res,req) =>{
+ Router.get("/get_one/:director_id", async(req,res) =>{
     const getoneDirector = await DirectorModel.findOne(
         {
             director_id : req.params.director_id,
@@ -38,7 +38,7 @@ Router.put("/update/:director_id", async (req,res)=>{
     return res.json({Director: updateDirector, message:"Director name is updated"});
 });
 
-Router.delete("delete/:director_id", async(req,res) => {
+Router.delete("/delete/:director_id", async(req,res) => {
     const deleteDirector = await DirectorModel.findOneAndDelete(
         {
           director_id: req.params.director_id,  
